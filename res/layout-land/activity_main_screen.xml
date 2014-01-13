@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/search"
+    tools:context=".MainScreen" >
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:text="Search" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Enter the artist and song name"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        tools:context=".MainScreen" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:text="or part of the song"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        tools:context=".MainScreen" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="artist - song"
+        android:imeOptions="actionSearch"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/adText"
+        android:layout_alignBottom="@+id/adText"
+        android:layout_toLeftOf="@+id/adText"
+        android:background="@drawable/button_pic" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/adText"
+        android:layout_alignBottom="@+id/adText"
+        android:layout_toRightOf="@+id/adText"
+        android:background="@drawable/button_pic" />
+
+    <TextView
+        android:id="@+id/adText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="31dp"
+        android:text="Send Ringtones to your Android"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FF0000" />
+
+</RelativeLayout>

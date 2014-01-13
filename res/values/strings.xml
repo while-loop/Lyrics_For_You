@@ -1,0 +1,88 @@
+<resources>
+
+    <string name="app_name">Lyrics For You</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Coming Soon</string>
+    <string name="title_activity_main_screen">Lyrics For You</string>
+    <string name="changeLog">"Lyrics For You (Android App)
+
+	4/16/13 - v1.10
+		- Fixed YouTube invalid ID
+		- added landscape layout
+	
+	3/30/13 - v1.09
+		- Added changelog in app
+		- Added Youtube player to the Lyrics View
+
+	3/29/13 - v1.08
+		- Have the option to buy the Ringtone
+		- You can now share lyrics via menu.
+	
+	3/20/13 - v1.06
+		- Removed ads from the app
+		- Lyrics now show again.
+	
+	11/3  - v1.04
+		- Added ads to the app	
+	
+	10/31 - v1.03
+		- fixed update server 
+		- fixed some songs that didnt work in v1.01.
+	
+	10/31 - v1.01
+		- fixed easter egg =)
+
+	10/31 - v1.0
+		- Released v1.5 to the Play Store
+
+
+	In progress 
+		- Working being able to choose song from a list
+
+
+
+	Future updates
+		- Be able to choose song from list
+		- Save recent searches
+		- Favorites
+		- Voice Input
+		
+
+OLD - 
+	
+Lyrics 4 U.apk ( Android )
+
+	10/21 - v.95
+
+	10/22 - v1.0
+		- Initial release
+		- Fixed the search key button
+		- Added exceptions if lyrics are not found
+		- Cleaned the code
+
+	10/23 - v1.1
+		- Changed the main screen picture
+		- Removed unnecessary code
+		- Added artist to the lyrics screen
+
+	10/24 - v1.2
+		- Changed source of lyrics (More songs, and more accurate)
+		- Cleaned the code
+		- Ability to clear text input(Temporary)
+
+	10/24 - v1.3
+		- new updating system
+		- new loading message
+		- more exceptions 
+
+	10/25 - v1.4
+		- Removed the loading screen
+		- Faster app loading, and lyrics searching
+		- Fixed the threads (no more sleep timing)
+		- Fixed crashes for no lyrics
+
+	10/28 - v1.5
+		- Does not load app if internet connection is not available(you wouldnt be able to use the app anyway.)
+		- Clear textfield "X" button"</string>
+
+</resources>
