@@ -1,7 +1,6 @@
 package com.lyics4me.lyrics4u;
 
 public class SongList {
-
     String songName;
     String artist;
     String URL;

@@ -7,15 +7,24 @@ public abstract class Parser {
     public static String ARTIST = "";
     public static String SONG = "";
 
+    /**
+     * Gets a search page from user input request
+     * @param input - user input of Song and/or artist
+     * @return - search result url
+     */
     public static String getSearchURL(String input) {
         return ("http://search.azlyrics.com/search.php?q=" + input.replaceAll(
                 " ", "+"));
 
     }
-
+/**
+ * Fetches the URL to the lyric page
+ * @param inputURL - URL of the search results page
+ * @return - String url of the lyrics page
+ * @throws CustomException - No lyrics were found
+ */
     public static String getURL(String inputURL) throws CustomException {
         String nextLine = "";
-
         try {
             final URL url = new URL(inputURL);
             final URLConnection urlConn = url.openConnection();
@@ -44,6 +53,11 @@ public abstract class Parser {
         }
     }
 
+    /**
+     * Gets the lyrics and puts them so a string.
+     * @param inputURL - URL to the lyrics page
+     * @return - String containing the lyrics
+     */
     public static String parseLyrics(String inputURL) {
         String nextLine, fullLyrics = "";
 
@@ -55,7 +69,7 @@ public abstract class Parser {
 
             nextLine = buff.readLine();
             String lyrics = "";
-            // Artist & Song
+            // Gathers Artist & Song name
             while (!(nextLine.indexOf("ArtistName = ") != -1)) {
                 nextLine = buff.readLine();
             }
@@ -64,8 +78,8 @@ public abstract class Parser {
             SONG = (nextLine.substring(12, nextLine.length() - 2));
             fullLyrics = fullLyrics + "Artist: " + ARTIST + "\n" + "Song: "
                     + SONG + "\n";
-            // Lyrics
-
+            
+            // Creates the lyrics string
             while (nextLine.indexOf("<!-- start of lyrics -->") == -1) {
                 nextLine = buff.readLine();
             }
@@ -85,6 +99,10 @@ public abstract class Parser {
         return fullLyrics;
     }
 
+    /**
+     * Sets up the YouTube player video ID
+     * @return - String containing the specific video ID
+     */
     public static String getVideo() {
         String id = "";
         String nextLine;
@@ -102,8 +120,9 @@ public abstract class Parser {
                 System.out.println(nextLine);
                 nextLine = buff.readLine();
             }
+            
+           //removes the url and only keeps the ID
             nextLine = nextLine.replaceAll(" ", "");
-
             id = nextLine.substring(17, 28);
 
         } catch (MalformedURLException e) {

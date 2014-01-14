@@ -108,7 +108,7 @@ public class MainScreen extends Activity {
 
         });
 
-        /*
+        /* Voice input
          * Button speakButton = (Button) findViewById(R.id.speakButton);
          * speakButton.setOnClickListener(new View.OnClickListener() {
          * public void onClick(View v) {
@@ -181,9 +181,7 @@ public class MainScreen extends Activity {
                     .getText().toString();
 
             // loader
-
-            lyrics = Parser.parseLyrics(Parser.getURL(Parser
-                    .getSearchURL(search_entry)));
+            lyrics = Parser.parseLyrics(Parser.getURL(Parser.getSearchURL(search_entry)));
             String artist = Parser.ARTIST;
             String songName = Parser.SONG;
             i.putExtra("song", lyrics);
@@ -337,6 +335,7 @@ public class MainScreen extends Activity {
         }
     };
 
+    // Easter egg =D
     private Handler handler2 = new Handler() {
         public void handleMessage(android.os.Message msg) {
             showOneButtonDialog("fuck you too", "Challenge Accepted", true,
