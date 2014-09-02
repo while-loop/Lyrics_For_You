@@ -1,6 +1,9 @@
 package com.lyics4me.lyrics4u;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.json.simple.parser.ParseException;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
@@ -198,6 +201,12 @@ public class Lyrics extends YouTubeBaseActivity implements
                 player.cueVideo(Parser.getVideo());
             } catch (NullPointerException e) {
                 player.cueVideo("EMsX1JnGEdE");
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }

@@ -1,7 +1,13 @@
 package com.lyics4me.lyrics4u;
 
 import java.net.*;
-import java.io.*;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.json.simple.parser.*;
 
 public abstract class Parser {
     public static String ARTIST = "";
@@ -102,36 +108,22 @@ public abstract class Parser {
     /**
      * Sets up the YouTube player video ID
      * @return - String containing the specific video ID
+     * @throws IOException 
+     * @throws ParseException 
      */
-    public static String getVideo() {
-        String id = "";
-        String nextLine;
-        String inputURL = ("https://www.youtube.com/results?q="
-                + ARTIST + "+" + SONG + "&sm=3&app=desktop").replaceAll(" ", "+");
-        try {
-            final URL url = new URL(inputURL);
-            final URLConnection urlConn = url.openConnection();
-            final BufferedReader buff = new BufferedReader(
-                    new InputStreamReader(urlConn.getInputStream(), "UTF-8"));
+    public static String getVideo() throws IOException, ParseException {
+        String urlString = ("http://gdata.youtube.com/feeds/api/videos?q="+ ARTIST + "+" + SONG + "&alt=json&max-results=1").replaceAll(" ", "+");
+        URL url = new URL(urlString);
+        BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
 
-            nextLine = buff.readLine();
-
-            while (!(nextLine.indexOf("<a href=\"/watch?v=") != -1)) {
-                System.out.println(nextLine);
-                nextLine = buff.readLine();
-            }
-            
-           //removes the url and only keeps the ID
-            nextLine = nextLine.replaceAll(" ", "");
-            id = nextLine.substring(17, 28);
-
-        } catch (MalformedURLException e) {
-            System.out.println("Please check the URL:" + e.toString());
-        } catch (IOException e1) {
-            System.out.println("Can't read  from the Internet: "
-                    + e1.toString());
+        String inputLine, data = "";
+        while ((inputLine = in.readLine()) != null) {
+            data += inputLine + "\n";
         }
-        return id;
+
+        data = data.substring(data.indexOf("http://www.youtube.com/watch?v="));
+        data = data.substring(data.indexOf("=")+1, data.indexOf("&"));
+        return data;
 
     }
 }
